@@ -8,8 +8,7 @@ public class ConvertNumber {
 
     public static void main(String[] args) {
         
-        // For testing purposes
-        int i = 10;
+        int i = Integer.parseInt(args[0]);
         
         System.out.println("Numerical: " + i + "\n");
         
