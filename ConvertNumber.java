@@ -52,15 +52,24 @@ public class ConvertNumber {
 
     public static void main(String[] args) {
 
+        // Sign holder
+        String negative = "";
+
         // Easier for quick testing to produce a rand number.
         int i = args.length > 0 ? Integer.parseInt(args[0]) : getRandom();
 
-        System.out.println("Numerical: " + i + "\n");
+        System.out.println("Numeric: " + i + "\n");
+
+        // Account for negative numbers and flip it.
+        if (i < 0) {
+            negative = "negative ";
+            i *= -1;
+        }
 
         if (i == 0) {
             System.out.println("Exception: zero\n");
         } else {
-            System.out.println("Textual: " + convertNumber(i) + "\n");
+            System.out.println("Textual: " + negative + convertNumber(i) + "\n");
         }
 
         System.exit(0);
@@ -98,8 +107,8 @@ public class ConvertNumber {
     private static int getRandom() {
 
         Random rand = new Random();
-        int min = 0;
         int max = 999999;
+        int min = max * -1 ;
 
         return rand.nextInt(max - min + 1) + min;
     }
