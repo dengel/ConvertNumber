@@ -57,24 +57,36 @@ public class ConvertNumber {
 
         System.out.println("Numerical: " + i + "\n");
 
-        // TODO: Refactor into method and use recursion.
-
-        // individual numbers go up to 19, then 
-        // need tens, hundreds, and thousands.
         if (i == 0) {
-            System.out.println("Textual: zero");
-        } else if (isBetween(i, 1, 19)) {
-            System.out.println("Textual: " + BASE.get(i));
-        } else if (isBetween(i, 20, 99)) {
-            System.out.println("Textual: " + TENS.get(i / 10 - 1) + " " + BASE.get(i % 10));
-        } else if (isBetween(i, 100, 999)) {
-            System.out.println("Range: 100-999");
-        } else if (isBetween(i, 1000, 999999)) {
-            System.out.println("Range: 1000-999999");
+            System.out.println("Exception: zero\n");
+        } else {
+            System.out.println("Textual: " + convertNumber(i) + "\n");
         }
 
         System.exit(0);
         
+    }
+
+    // individual numbers go up to 19, then 
+    // need tens, hundreds, and thousands.
+    public static String convertNumber(int i) {
+
+        String retval = "";
+
+        if (i == 0) {
+            retval = "";
+        } else if (isBetween(i, 1, 19)) {
+            retval = BASE.get(i);
+        } else if (isBetween(i, 20, 99)) {
+            retval = TENS.get(i / 10 - 1) + " " + convertNumber(i % 10);
+        } else if (isBetween(i, 100, 999)) {
+            retval = convertNumber(i / 100) + " hundred " + convertNumber(i % 100);
+        } else if (isBetween(i, 1000, 999999)) {
+            retval = "not yet";
+        }
+
+        return retval.replaceAll("\\s+", " ");
+
     }
 
     // TODO: See if a SWITCH with CASE ranges is possible.
