@@ -82,7 +82,7 @@ public class ConvertNumber {
         } else if (isBetween(i, 100, 999)) {
             retval = convertNumber(i / 100) + " hundred " + convertNumber(i % 100);
         } else if (isBetween(i, 1000, 999999)) {
-            retval = "not yet";
+            retval = convertNumber(i / 1000) + " thousand " + convertNumber(i % 1000);
         }
 
         return retval.replaceAll("\\s+", " ");
@@ -99,7 +99,7 @@ public class ConvertNumber {
 
         Random rand = new Random();
         int min = 0;
-        int max = 99;
+        int max = 999999;
 
         return rand.nextInt(max - min + 1) + min;
     }
