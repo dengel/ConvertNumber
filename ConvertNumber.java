@@ -58,7 +58,7 @@ public class ConvertNumber {
         // individual numbers go up to 19, then 
         // need tens, hundreds, and thousands.
         if (i == 0) {
-            System.out.println("Range: 0");
+            System.out.println("Textual: zero");
         } else if (isBetween(i, 1, 19)) {
             System.out.println("Textual: " + BASE.get(i));
         } else if (isBetween(i, 20, 99)) {
