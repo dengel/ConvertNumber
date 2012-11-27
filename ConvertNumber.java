@@ -59,7 +59,7 @@ public class ConvertNumber {
         } else if (isBetween(i, 1, 19)) {
             System.out.println("Textual: " + BASE.get(i));
         } else if (isBetween(i, 20, 99)) {
-            System.out.println("Textual: " + TENS.get(i / 10 - 1));
+            System.out.println("Textual: " + TENS.get(i / 10 - 1) + " " + BASE.get(i % 10));
         } else if (isBetween(i, 100, 999)) {
             System.out.println("Range: 100-999");
         } else if (isBetween(i, 1000, 999999)) {
