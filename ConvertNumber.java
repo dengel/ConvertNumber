@@ -6,6 +6,7 @@
 
 import java.util.Hashtable;
 import java.util.Map;
+import java.util.Random;
 
 public class ConvertNumber {
 
@@ -34,6 +35,7 @@ public class ConvertNumber {
         put(19, "nineteen");
     }};
 
+    // Map all tens.
     private static final Map<Integer, String> TENS = new Hashtable<Integer, String>() {
         {
         put(1, "twenty");
@@ -48,7 +50,8 @@ public class ConvertNumber {
 
     public static void main(String[] args) {
 
-        int i = Integer.parseInt(args[0]);
+        // Easier for quick testing to produce a rand number.
+        int i = args.length > 0 ? Integer.parseInt(args[0]) : getRandom();
 
         System.out.println("Numerical: " + i + "\n");
 
@@ -74,5 +77,16 @@ public class ConvertNumber {
     public static boolean isBetween(int x, int lower, int upper) {
         return lower <= x && x <= upper;
     }
+
+    // Return random number within range.
+    private static int getRandom() {
+
+        Random rand = new Random();
+        int min = 0;
+        int max = 100;
+
+        return rand.nextInt(max - min + 1) + min;
+    }
+
 
 }
