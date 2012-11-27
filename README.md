@@ -18,4 +18,8 @@ Output: String representation of the value
     java -jar ConvertNumber 1001    --> one thousand one
     java -jar ConvertNumber 999221  --> nine hundred ninety nine thousand two hundred twenty one
 
+*Level of Effort*
 
+    * Estimated 6-8 hrs.
+    * Actual day 1: 3 hrs.
+    * Actual day 2: ? hrs.
