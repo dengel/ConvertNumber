@@ -34,6 +34,18 @@ public class ConvertNumber {
         put(19, "nineteen");
     }};
 
+    private static final Map<Integer, String> TENS = new Hashtable<Integer, String>() {
+        {
+        put(1, "twenty");
+        put(2, "thirty");
+        put(3, "forty");
+        put(4, "fifty");
+        put(5, "sixty");
+        put(6, "seventy");
+        put(7, "eighty");
+        put(8, "ninety");
+    }};
+
     public static void main(String[] args) {
 
         int i = Integer.parseInt(args[0]);
@@ -47,7 +59,7 @@ public class ConvertNumber {
         } else if (isBetween(i, 1, 19)) {
             System.out.println("Textual: " + BASE.get(i));
         } else if (isBetween(i, 20, 99)) {
-            System.out.println("Range: 20-99");
+            System.out.println("Textual: " + TENS.get(i / 10 - 1));
         } else if (isBetween(i, 100, 999)) {
             System.out.println("Range: 100-999");
         } else if (isBetween(i, 1000, 999999)) {
