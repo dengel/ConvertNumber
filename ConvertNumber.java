@@ -2,6 +2,8 @@
 **
 ** Daniel Engel 2012
 **
+** GitHub URL: http://github.com/dengel/ConvertNumber
+**
 */
 
 import java.util.Hashtable;
@@ -55,6 +57,8 @@ public class ConvertNumber {
 
         System.out.println("Numerical: " + i + "\n");
 
+        // TODO: Refactor into method and use recursion.
+
         // individual numbers go up to 19, then 
         // need tens, hundreds, and thousands.
         if (i == 0) {
@@ -83,7 +87,7 @@ public class ConvertNumber {
 
         Random rand = new Random();
         int min = 0;
-        int max = 100;
+        int max = 99;
 
         return rand.nextInt(max - min + 1) + min;
     }
