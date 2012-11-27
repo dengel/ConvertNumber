@@ -67,7 +67,7 @@ public class ConvertNumber {
         }
 
         if (i == 0) {
-            System.out.println("Exception: zero\n");
+            System.out.println("Textual: zero\n");
         } else {
             System.out.println("Textual: " + negative + convertNumber(i) + "\n");
         }
@@ -92,6 +92,8 @@ public class ConvertNumber {
             retval = convertNumber(i / 100) + " hundred " + convertNumber(i % 100);
         } else if (isBetween(i, 1000, 999999)) {
             retval = convertNumber(i / 1000) + " thousand " + convertNumber(i % 1000);
+        } else if (isBetween(i, 1000000, 999999999)) {
+            retval = convertNumber(i / 1000000) + " million " + convertNumber(i % 1000000);
         }
 
         return retval.replaceAll("\\s+", " ");
@@ -107,7 +109,7 @@ public class ConvertNumber {
     private static int getRandom() {
 
         Random rand = new Random();
-        int max = 999999;
+        int max = 999999999;
         int min = max * -1 ;
 
         return rand.nextInt(max - min + 1) + min;
