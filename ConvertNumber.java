@@ -35,19 +35,14 @@ public class ConvertNumber {
         put(17, "seventeen");
         put(18, "eighteen");
         put(19, "nineteen");
-    }};
-
-    // Map all tens.
-    private static final Map<Integer, String> TENS = new Hashtable<Integer, String>() {
-        {
-        put(1, "twenty");
-        put(2, "thirty");
-        put(3, "forty");
-        put(4, "fifty");
-        put(5, "sixty");
-        put(6, "seventy");
-        put(7, "eighty");
-        put(8, "ninety");
+        put(20, "twenty");
+        put(30, "thirty");
+        put(40, "forty");
+        put(50, "fifty");
+        put(60, "sixty");
+        put(70, "seventy");
+        put(80, "eighty");
+        put(90, "ninety");
     }};
 
     public static void main(String[] args) {
@@ -87,7 +82,7 @@ public class ConvertNumber {
         } else if (isBetween(i, 1, 19)) {
             retval = BASE.get(i);
         } else if (isBetween(i, 20, 99)) {
-            retval = TENS.get(i / 10 - 1) + " " + convertNumber(i % 10);
+            retval = BASE.get((i / 10) * 10) + " " + convertNumber(i % 10);
         } else if (isBetween(i, 100, 999)) {
             retval = convertNumber(i / 100) + " hundred " + convertNumber(i % 100);
         } else if (isBetween(i, 1000, 999999)) {
