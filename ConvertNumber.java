@@ -1,7 +1,7 @@
 /*
  ** Daniel Engel 2012
  **
- ** Java
+ ** GitHub URL: http://github.com/dengel/ConvertNumber
  **
  */
 
@@ -47,12 +47,21 @@ public class ConvertNumber {
             put(1000000, "million");
             put(1000000000, "billion");
         }
+        // Needed for static final not to produce a warning.
+        private static final long serialVersionUID = -1263475102911573670L;
     };
 
+    // Main method to be called by the JRE.
     public static void main(String[] args) {
 
-        int numeric = 0;
-        String negative = "";
+        int numeric = 0;      // Input holder.
+        String negative = ""; // For negative numbers.
+
+        // Validate numeric input.
+        if ((args.length > 0) && (!isNumeric(args[0]))) {
+            System.out.println("\n*** Error: Non numeric value [" + args[0] + "].\n");
+            System.exit(-1);
+        }
 
         // If an argument is given, use it. Otherwise produce a random number.
         numeric = args.length > 0 ? Integer.parseInt(args[0]) : getRandom();
@@ -65,6 +74,7 @@ public class ConvertNumber {
             numeric *= -1;
         }
 
+        // Zero is an exception, everything else use same recursive method.
         if (numeric == 0) {
             System.out.println("Textual: zero\n");
         } else {
@@ -75,18 +85,22 @@ public class ConvertNumber {
     }
 
     // Recursive method to convert a numerical value into its textual equivalent.
+    // IN : Integer containing remainder of numeric value.
+    // OUT: String containing partial textual value.
     public static String convertNumber(int numeric) {
 
-        String retval = "";
-        int multiplier = 0;
+        String retval = ""; // Return holder.
+        int multiplier = 0; // Scale multiplier factor.
 
         // Recursve condition block.
         if (isBetween(numeric, 0, 19)) {
+            // Less than 20 is exceptional, use simple lookup.
             retval = BASE.get(numeric);
         } else if (isBetween(numeric, 20, 99)) {
-            retval = BASE.get((numeric / 10) * 10) + " "
-                    + convertNumber(numeric % 10);
+            // The division and mutiplication by 10 rounds to lowest integer.
+            retval = BASE.get((numeric / 10) * 10) + " " + convertNumber(numeric % 10);
         } else if (numeric > 99) {
+            // Scale values can be combined into a single clause, with a multiplier.
             if (isBetween(numeric, 100, 999)) {
                 multiplier = 100;
             } else if (isBetween(numeric, 1000, 999999)) {
@@ -111,6 +125,11 @@ public class ConvertNumber {
     // Since Java does not have a native SWITCH with range CASE.
     public static boolean isBetween(int x, int lower, int upper) {
         return lower <= x && x <= upper;
+    }
+
+    // Use a regex to match an integer number.
+    public static boolean isNumeric(String str) {
+        return str.matches("-?\\d+");
     }
 
     // Easy way to test things, used if no argument is given.
