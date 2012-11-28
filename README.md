@@ -13,7 +13,7 @@ Output: String representation of the value
 
 *Examples:*
 
-    java -jar ConvertNumber 100     ––> one hundred
+    java -jar ConvertNumber 100     --> one hundred
     java -jar ConvertNumber 0       --> zero
     java -jar ConvertNumber 1001    --> one thousand one
     java -jar ConvertNumber 999221  --> nine hundred ninety nine thousand two hundred twenty one
@@ -22,4 +22,5 @@ Output: String representation of the value
 
     * Estimated 6-8 hrs.
     * Actual day 1: 3 hrs.
-    * Actual day 2: ? hrs.
+    * Actual day 2: 2 hrs.
+    * ACTUAL TOTAL: 5 hrs.
